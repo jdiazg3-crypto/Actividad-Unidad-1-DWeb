@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Usuario</title>
+</head>
+<body>
+<h1>Formulario de Usuario</h1>
+<form th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    Nombre: <input type="text" th:field="*{nombre}"/><br/>
+    Clave: <input type="password" th:field="*{clave}"/><br/>
+    Rol: <input type="text" th:field="*{rol}"/><br/>
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>
