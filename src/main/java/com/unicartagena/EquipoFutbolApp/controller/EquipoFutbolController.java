@@ -43,4 +43,28 @@ public class EquipoFutbolController {
         service.eliminar(id);
         return "redirect:/equipos";
     }
+    @GetMapping("/reporte-pais-categoria")
+    public String reportePorPaisCategoria(
+            @RequestParam(required = false) String pais,
+            @RequestParam(required = false) String categoria,
+            Model model) {
+        if (pais != null && categoria != null && !pais.isBlank() && !categoria.isBlank()) {
+            model.addAttribute("equipos", service.buscarPorPaisYCategoria(pais, categoria));
+        } else {
+            model.addAttribute("equipos", java.util.Collections.emptyList());
+        }
+        return "equipos/reporte-pais-categoria";
+    }
+
+    @GetMapping("/reporte-goles")
+    public String reportePorGoles(
+            @RequestParam(required = false) Integer numGoles,
+            Model model) {
+        if (numGoles != null) {
+            model.addAttribute("equipos", service.buscarPorGolesMayorA(numGoles));
+        } else {
+            model.addAttribute("equipos", java.util.Collections.emptyList());
+        }
+        return "equipos/reporte-goles";
+    }
 }

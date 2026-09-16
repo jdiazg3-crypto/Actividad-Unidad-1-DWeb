@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte por goles</title>
+</head>
+<body>
+<h1>Reporte: Equipos con más de X goles</h1>
+<form method="get" th:action="@{/equipos/reporte-goles}">
+    Goles mayor a: <input type="number" name="numGoles"/>
+    <button type="submit">Buscar</button>
+</form>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Nombre</th><th>País</th><th>Categoría</th><th>Goles</th>
+    </tr>
+    <tr th:each="equipo : ${equipos}">
+        <td th:text="${equipo.nombre}"></td>
+        <td th:text="${equipo.pais}"></td>
+        <td th:text="${equipo.categoria}"></td>
+        <td th:text="${equipo.numGoles}"></td>
+    </tr>
+</table>
+<a th:href="@{/equipos}">Volver</a>
+</body>
+</html>

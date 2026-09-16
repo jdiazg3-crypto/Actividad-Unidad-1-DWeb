@@ -28,4 +28,11 @@ public class EquipoFutbolService {
     public void eliminar(Long id) {
         repository.deleteById(id);
     }
+    public List<EquipoFutbol> buscarPorPaisYCategoria(String pais, String categoria) {
+        return repository.findByPaisAndCategoria(pais, categoria);
+    }
+
+    public List<EquipoFutbol> buscarPorGolesMayorA(Integer numGoles) {
+        return repository.findByNumGolesGreaterThan(numGoles);
+    }
 }

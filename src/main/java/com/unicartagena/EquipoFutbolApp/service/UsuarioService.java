@@ -42,4 +42,11 @@ public class UsuarioService {
     public void eliminar(Long id) {
         repository.deleteById(id);
     }
+    public List<Usuario> buscarPorRol(String rol) {
+        return repository.findByRol(rol);
+    }
+
+    public List<Usuario> buscarPorNombre(String nombre) {
+        return repository.findByNombreContainingIgnoreCase(nombre);
+    }
 }

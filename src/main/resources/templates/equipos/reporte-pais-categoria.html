@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte por país y categoría</title>
+</head>
+<body>
+<h1>Reporte: Equipos por país y categoría</h1>
+<form method="get" th:action="@{/equipos/reporte-pais-categoria}">
+    País: <input type="text" name="pais"/>
+    Categoría: <input type="text" name="categoria"/>
+    <button type="submit">Buscar</button>
+</form>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Nombre</th><th>País</th><th>Categoría</th><th>Goles</th>
+    </tr>
+    <tr th:each="equipo : ${equipos}">
+        <td th:text="${equipo.nombre}"></td>
+        <td th:text="${equipo.pais}"></td>
+        <td th:text="${equipo.categoria}"></td>
+        <td th:text="${equipo.numGoles}"></td>
+    </tr>
+</table>
+<a th:href="@{/equipos}">Volver</a>
+</body>
+</html>

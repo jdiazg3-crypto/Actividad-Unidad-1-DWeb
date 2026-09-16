@@ -43,4 +43,27 @@ public class UsuarioController {
         service.eliminar(id);
         return "redirect:/usuarios";
     }
+    @GetMapping("/reporte-rol")
+    public String reportePorRol(
+            @RequestParam(required = false) String rol,
+            Model model) {
+        if (rol != null && !rol.isBlank()) {
+            model.addAttribute("usuarios", service.buscarPorRol(rol));
+        } else {
+            model.addAttribute("usuarios", java.util.Collections.emptyList());
+        }
+        return "usuarios/reporte-rol";
+    }
+
+    @GetMapping("/reporte-nombre")
+    public String reportePorNombre(
+            @RequestParam(required = false) String nombre,
+            Model model) {
+        if (nombre != null && !nombre.isBlank()) {
+            model.addAttribute("usuarios", service.buscarPorNombre(nombre));
+        } else {
+            model.addAttribute("usuarios", java.util.Collections.emptyList());
+        }
+        return "usuarios/reporte-nombre";
+    }
 }
