@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Equipo</title>
+</head>
+<body>
+<h1>Formulario de Equipo</h1>
+<form th:action="@{/equipos/guardar}" th:object="${equipo}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    Nombre: <input type="text" th:field="*{nombre}"/><br/>
+    Eslogan: <input type="text" th:field="*{eslogan}"/><br/>
+    Técnico: <input type="text" th:field="*{tecnico}"/><br/>
+    País: <input type="text" th:field="*{pais}"/><br/>
+    Ciudad: <input type="text" th:field="*{ciudad}"/><br/>
+    Categoría: <input type="text" th:field="*{categoria}"/><br/>
+    Goles: <input type="number" th:field="*{numGoles}"/><br/>
+    Partidos jugados: <input type="number" th:field="*{numPartidosJugados}"/><br/>
+    Partidos ganados: <input type="number" th:field="*{numPartidosGanados}"/><br/>
+    Campeonatos: <input type="number" th:field="*{numCampeonatos}"/><br/>
+    Expulsiones: <input type="number" th:field="*{numExpulsiones}"/><br/>
+    Empates: <input type="number" th:field="*{numEmpates}"/><br/>
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>

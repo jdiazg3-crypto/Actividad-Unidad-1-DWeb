@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipos de Fútbol</title>
+</head>
+<body>
+<h1>Equipos de Fútbol</h1>
+<a th:href="@{/equipos/nuevo}">Nuevo equipo</a>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Nombre</th><th>País</th><th>Ciudad</th><th>Categoría</th><th>Goles</th><th>Acciones</th>
+    </tr>
+    <tr th:each="equipo : ${equipos}">
+        <td th:text="${equipo.nombre}"></td>
+        <td th:text="${equipo.pais}"></td>
+        <td th:text="${equipo.ciudad}"></td>
+        <td th:text="${equipo.categoria}"></td>
+        <td th:text="${equipo.numGoles}"></td>
+        <td>
+            <a th:href="@{/equipos/editar/{id}(id=${equipo.id})}">Editar</a>
+            |
+            <a th:href="@{/equipos/eliminar/{id}(id=${equipo.id})}">Eliminar</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
