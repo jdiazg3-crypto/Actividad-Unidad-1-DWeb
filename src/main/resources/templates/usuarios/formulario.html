@@ -9,7 +9,7 @@
 <form th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
     <input type="hidden" th:field="*{id}"/>
     Nombre: <input type="text" th:field="*{nombre}"/><br/>
-    Clave: <input type="password" th:field="*{clave}"/><br/>
+    Clave: <input type="password" name="clave" placeholder="Dejar en blanco para no cambiar"/><br/>
     Rol: <input type="text" th:field="*{rol}"/><br/>
     <button type="submit">Guardar</button>
 </form>
