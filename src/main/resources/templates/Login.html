@@ -11,7 +11,8 @@
     Clave: <input type="password" name="password"/><br/>
     <button type="submit">Entrar</button>
 </form>
+<br/>
+<a th:href="@{/recuperar-clave}">¿Olvidaste tu contraseña?</a>
 <p th:if="${param.error}">Usuario o clave incorrectos.</p>
-<p th:if="${param.logout}">Sesión cerrada correctamente.</p>
 </body>
 </html>
