@@ -59,6 +59,7 @@ public class LoginController {
 
                 model.addAttribute("exito", "Se ha generado una nueva contraseña temporal y ha sido enviada a su correo.");
             } catch (Exception e) {
+                e.printStackTrace();
                 model.addAttribute("error", "Hubo un error al enviar el correo. Por favor intente más tarde.");
             }
         } else {
